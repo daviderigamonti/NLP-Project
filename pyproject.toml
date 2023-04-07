@@ -30,9 +30,12 @@ tqdm = "^4.65.0"
 tensorflow = "2.11"
 jedi = "^0.18.2"
 flakeheaven = "3.2.1"
+flake8-bandit = ">=3.0.0"
 black = "23.3.0"
 pre-commit = "^3.2.2"
 jupyter = "^1.0.0"
+flake8-docstrings = "^1.7.0"
+flake8 = ">=4.0.1"
 
 
 [build-system]
