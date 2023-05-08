@@ -20,7 +20,7 @@ def split(x, y, test_size=0.2, val_size=0.0):
     x_val, y_val = None, None
     if val_size > 0:
         x_test, x_val, y_test, y_val = train_test_split(
-            x_test, y_test, test_size=val_size, stratify=y_test
+            x_test, y_test, test_size=val_size / (test_size + val_size), stratify=y_test
         )
     return x_train, x_val, x_test, y_train, y_val, y_test
 
