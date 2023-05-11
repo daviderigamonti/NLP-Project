@@ -8,14 +8,14 @@ from nlp_project.nn_utils import StopNNLoop, build_history_string
 
 
 class Data(dt.Dataset):
-    def __init__(self, x, y):
+    def __init__(self, x, y, x_type=np.int32, y_type=torch.float):
         x_coo = x.tocoo()
         self.x = torch.sparse.FloatTensor(
             torch.LongTensor([x_coo.row, x_coo.col]),
-            torch.FloatTensor(x_coo.data.astype(np.int32)),
+            torch.FloatTensor(x_coo.data.astype(x_type)),
             x_coo.shape,
         )
-        self.y = torch.tensor(y, dtype=torch.float)
+        self.y = torch.tensor(y, dtype=y_type)
         self.shape = self.x.shape
 
     def __getitem__(self, index):
