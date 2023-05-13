@@ -130,3 +130,7 @@ dmypy.json
 
 # Dataset folder
 AUTEXTIFICATION/*
+
+# Models folders
+notebooks/Task1/models/*
+notebooks/Task2/models/*
