@@ -12,6 +12,7 @@ from sklearn.utils import resample
 
 from os.path import exists, isfile
 from joblib import dump, load
+from pathlib import Path
 
 
 def split(x, y, test_size=0.2, val_size=0.0, seed=0):
@@ -41,6 +42,7 @@ def evaluate(y_true, y_pred, labels=None):
 
 
 def save_scikit_model(path, model, name):
+    Path(path).mkdir(parents=True, exist_ok=True)
     dump(model, path + "/" + name)
 
 
