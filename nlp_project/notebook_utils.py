@@ -32,6 +32,20 @@ def split(x, y, test_size=0.2, val_size=0.0, seed=0):
         )
     return x_train, x_val, x_test, y_train, y_val, y_test
 
+def compact_split(dataset, test_size=0.2, val_size=0.0, seed=0):
+    if val_size + test_size >= 1:
+        return None
+    train, test = train_test_split(
+        dataset, test_size=test_size + val_size, random_state=seed
+    )
+    val = None
+    if val_size > 0:
+        val, test = train_test_split(
+            test,
+            test_size=test_size / (test_size + val_size),
+            random_state=seed,
+        )
+    return train, val, test
 
 def evaluate(y_true, y_pred, labels=None):
     print(classification_report(y_true, y_pred))
