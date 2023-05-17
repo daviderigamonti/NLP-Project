@@ -249,6 +249,21 @@ six = "*"
 test = ["astroid", "pytest"]
 
 [[package]]
+name = "async-lru"
+version = "2.0.2"
+description = "Simple LRU cache for asyncio"
+category = "main"
+optional = false
+python-versions = ">=3.8"
+files = [
+    {file = "async-lru-2.0.2.tar.gz", hash = "sha256:3b87ec4f2460c52cc7916a0138cc606b584c75d1ef7d661853c95d1d3acb869a"},
+    {file = "async_lru-2.0.2-py3-none-any.whl", hash = "sha256:d7c2b873e9af5c5a1f0a87a6c145e7e0b4eb92342b7235dda9dd5b10e950d6e2"},
+]
+
+[package.dependencies]
+typing-extensions = ">=4.0.0"
+
+[[package]]
 name = "async-timeout"
 version = "4.0.2"
 description = "Timeout context manager for asyncio programs"
@@ -278,6 +293,18 @@ dev = ["attrs[docs,tests]"]
 docs = ["furo", "myst-parser", "sphinx", "sphinx-notfound-page", "sphinxcontrib-towncrier", "towncrier", "zope.interface"]
 tests = ["attrs[tests-no-zope]", "zope.interface"]
 tests-no-zope = ["cloudpickle", "cloudpickle", "hypothesis", "hypothesis", "mypy (>=0.971,<0.990)", "mypy (>=0.971,<0.990)", "pympler", "pympler", "pytest (>=4.3.0)", "pytest (>=4.3.0)", "pytest-mypy-plugins", "pytest-mypy-plugins", "pytest-xdist[psutil]", "pytest-xdist[psutil]"]
+
+[[package]]
+name = "babel"
+version = "2.12.1"
+description = "Internationalization utilities"
+category = "main"
+optional = false
+python-versions = ">=3.7"
+files = [
+    {file = "Babel-2.12.1-py3-none-any.whl", hash = "sha256:b4246fb7677d3b98f501a39d43396d3cafdc8eadb045f4a31be01863f655c610"},
+    {file = "Babel-2.12.1.tar.gz", hash = "sha256:cc2d99999cd01d44420ae725a21c9e3711b3aadc7976d6147f622d8581963455"},
+]
 
 [[package]]
 name = "backcall"
@@ -1717,6 +1744,21 @@ files = [
 ]
 
 [[package]]
+name = "json5"
+version = "0.9.14"
+description = "A Python implementation of the JSON5 data format."
+category = "main"
+optional = false
+python-versions = "*"
+files = [
+    {file = "json5-0.9.14-py2.py3-none-any.whl", hash = "sha256:740c7f1b9e584a468dbb2939d8d458db3427f2c93ae2139d05f47e453eae964f"},
+    {file = "json5-0.9.14.tar.gz", hash = "sha256:9ed66c3a6ca3510a976a9ef9b8c0787de24802724ab1860bc0153c7fdd589b02"},
+]
+
+[package.extras]
+dev = ["hypothesis"]
+
+[[package]]
 name = "jsonpointer"
 version = "2.3"
 description = "Identify specific nodes in a JSON document (RFC 6901)"
@@ -1872,6 +1914,21 @@ docs = ["jupyterlite-sphinx", "myst-parser", "pydata-sphinx-theme", "sphinxcontr
 test = ["click", "coverage", "pre-commit", "pytest (>=7.0)", "pytest-asyncio (>=0.19.0)", "pytest-console-scripts", "pytest-cov", "rich"]
 
 [[package]]
+name = "jupyter-lsp"
+version = "2.1.0"
+description = "Multi-Language Server WebSocket proxy for Jupyter Notebook/Lab server"
+category = "main"
+optional = false
+python-versions = ">=3.8"
+files = [
+    {file = "jupyter-lsp-2.1.0.tar.gz", hash = "sha256:3aa2cbd81d3446256c34e3647d71b8f50617d07862a1c60fbe123f901cdb0dd2"},
+    {file = "jupyter_lsp-2.1.0-py3-none-any.whl", hash = "sha256:d7c058cfe8bd7a76859734f3a142edb50a2d1e265a7e323c2fdcd8b1db80a91b"},
+]
+
+[package.dependencies]
+jupyter-server = ">=1.1.2"
+
+[[package]]
 name = "jupyter-server"
 version = "2.5.0"
 description = "The backend—i.e. core services, APIs, and REST endpoints—to Jupyter web applications."
@@ -1928,6 +1985,38 @@ docs = ["jinja2", "jupyter-server", "mistune (<3.0)", "myst-parser", "nbformat",
 test = ["coverage", "jupyter-server (>=2.0.0)", "pytest (>=7.0)", "pytest-cov", "pytest-jupyter[server] (>=0.5.3)", "pytest-timeout"]
 
 [[package]]
+name = "jupyterlab"
+version = "4.0.0"
+description = "JupyterLab computational environment"
+category = "main"
+optional = false
+python-versions = ">=3.8"
+files = [
+    {file = "jupyterlab-4.0.0-py3-none-any.whl", hash = "sha256:e2f67c189f833963c271a89df6bfa3eec4d5c8f7827ad3059538c5f467de193b"},
+    {file = "jupyterlab-4.0.0.tar.gz", hash = "sha256:ce656d04828b2e4ee0758e22c862cc99aedec66a10319d09f0fd5ea51be68dd8"},
+]
+
+[package.dependencies]
+async-lru = ">=1.0.0"
+ipykernel = "*"
+jinja2 = ">=3.0.3"
+jupyter-core = "*"
+jupyter-lsp = ">=2.0.0"
+jupyter-server = ">=2.4.0,<3"
+jupyterlab-server = ">=2.19.0,<3"
+notebook-shim = ">=0.2"
+packaging = "*"
+tomli = {version = "*", markers = "python_version < \"3.11\""}
+tornado = ">=6.2.0"
+traitlets = "*"
+
+[package.extras]
+dev = ["black[jupyter] (==23.3.0)", "build", "bump2version", "coverage", "hatch", "pre-commit", "pytest-cov", "ruff (==0.0.263)"]
+docs = ["jsx-lexer", "myst-parser", "pydata-sphinx-theme (>=0.13.0)", "pytest", "pytest-check-links", "pytest-tornasync", "sphinx (>=1.8)", "sphinx-copybutton"]
+docs-screenshots = ["altair (==4.2.2)", "ipython (==8.13.1)", "ipywidgets (==8.0.6)", "jupyterlab-geojson (==3.3.1)", "jupyterlab-language-pack-zh-cn (==3.6.post1)", "matplotlib (==3.7.1)", "nbconvert (>=7.0.0)", "pandas (==2.0.1)", "scipy (==1.10.1)", "vega-datasets (==0.9.0)"]
+test = ["coverage", "pytest (>=7.0)", "pytest-check-links (>=0.7)", "pytest-console-scripts", "pytest-cov", "pytest-jupyter (>=0.5.3)", "pytest-timeout", "pytest-tornasync", "requests", "requests-cache", "virtualenv"]
+
+[[package]]
 name = "jupyterlab-pygments"
 version = "0.2.2"
 description = "Pygments theme using JupyterLab CSS variables"
@@ -1938,6 +2027,32 @@ files = [
     {file = "jupyterlab_pygments-0.2.2-py2.py3-none-any.whl", hash = "sha256:2405800db07c9f770863bcf8049a529c3dd4d3e28536638bd7c1c01d2748309f"},
     {file = "jupyterlab_pygments-0.2.2.tar.gz", hash = "sha256:7405d7fde60819d905a9fa8ce89e4cd830e318cdad22a0030f7a901da705585d"},
 ]
+
+[[package]]
+name = "jupyterlab-server"
+version = "2.22.1"
+description = "A set of server components for JupyterLab and JupyterLab like applications."
+category = "main"
+optional = false
+python-versions = ">=3.7"
+files = [
+    {file = "jupyterlab_server-2.22.1-py3-none-any.whl", hash = "sha256:1c8eb55c7cd70a50a51fef42a7b4e26ef2f7fc48728f0290604bd89b1dd156e6"},
+    {file = "jupyterlab_server-2.22.1.tar.gz", hash = "sha256:dfaaf898af84b9d01ae9583b813f378b96ee90c3a66f24c5186ea5d1bbdb2089"},
+]
+
+[package.dependencies]
+babel = ">=2.10"
+jinja2 = ">=3.0.3"
+json5 = ">=0.9.0"
+jsonschema = ">=4.17.3"
+jupyter-server = ">=1.21,<3"
+packaging = ">=21.3"
+requests = ">=2.28"
+
+[package.extras]
+docs = ["autodoc-traits", "docutils (<0.20)", "jinja2 (<3.2.0)", "mistune (<3)", "myst-parser", "pydata-sphinx-theme", "sphinx", "sphinx-copybutton", "sphinxcontrib-openapi"]
+openapi = ["openapi-core (>=0.16.1,<0.17.0)", "ruamel-yaml"]
+test = ["hatch", "ipykernel", "jupyterlab-server[openapi]", "openapi-spec-validator (>=0.5.1,<0.6.0)", "pytest (>=7.0)", "pytest-console-scripts", "pytest-cov", "pytest-jupyter[server] (>=0.6.2)", "pytest-timeout", "requests-mock", "sphinxcontrib-spelling", "strict-rfc3339", "werkzeug"]
 
 [[package]]
 name = "jupyterlab-widgets"
@@ -5428,4 +5543,4 @@ multidict = ">=4.0"
 [metadata]
 lock-version = "2.0"
 python-versions = ">=3.10,<4.0"
-content-hash = "d464ca7ef1577449fbe2664beaeb89ded062a7c2c6bb13e4de6252a146f17cff"
+content-hash = "8df0a41271d38b2100d60e3814f0d4cb6d0aa1055c73d364f90a980087e07c02"
