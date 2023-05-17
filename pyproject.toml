@@ -50,6 +50,7 @@ build-backend = "poetry.core.masonry.api"
 format = "grouped"
 max_line_length = 90
 show_source = true
+exclude = ["Final.ipynb"]
 
 [tool.flakeheaven.plugins]
 pyflakes = ["+*", "-F401"]
